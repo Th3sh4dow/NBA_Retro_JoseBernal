@@ -1,0 +1,44 @@
+{
+  "equipos": [
+    {
+      "nombre": "Lakers",
+      "jugadores": [
+        "LeBron James",
+        "Anthony Davis",
+        "Russell Westbrook",
+        "Carmelo Anthony",
+        "Dwight Howard"
+      ]
+    },
+    {
+      "nombre": "Warriors",
+      "jugadores": [
+        "Stephen Curry",
+        "Klay Thompson",
+        "Draymond Green",
+        "Andrew Wiggins",
+        "Kevon Looney"
+      ]
+    },
+    {
+      "nombre": "Bulls",
+      "jugadores": [
+        "Zach LaVine",
+        "DeMar DeRozan",
+        "Lonzo Ball",
+        "Nikola Vucevic",
+        "Coby White"
+      ]
+    },
+    {
+      "nombre": "Celtics",
+      "jugadores": [
+        "Jayson Tatum",
+        "Jaylen Brown",
+        "Marcus Smart",
+        "Al Horford",
+        "Robert Williams III"
+      ]
+    }
+  ]
+}
