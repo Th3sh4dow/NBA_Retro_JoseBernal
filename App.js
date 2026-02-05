@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from './HomeScreen';
 import VsScreen from './VSscreen';
+import WinnerScreen from './WinnerScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ export default function App() {
           component={VsScreen}
           options={{ title: 'Partido' }}
         />
+        <Stack.Screen name="Winner" component={WinnerScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

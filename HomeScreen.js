@@ -5,7 +5,8 @@ import {
   Text,
   Image,
   FlatList,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from 'react-native';
 
 import equiposData from './data/equipos.json';
@@ -33,11 +34,7 @@ export default function HomeScreen({ navigation }) {
 
         {/* EQUIPO 1 */}
         <View style={styles.card}>
-          <Image
-            source={imagenesEquipos[equipo1.nombre]}
-            style={styles.equipoImagen}
-          />
-
+          <Image source={imagenesEquipos[equipo1.nombre]} style={styles.equipoImagen}/>
           <Text style={styles.equipoNombre}>{equipo1.nombre}</Text>
 
           <FlatList
@@ -60,11 +57,7 @@ export default function HomeScreen({ navigation }) {
 
         {/* EQUIPO 2 */}
         <View style={styles.card}>
-          <Image
-            source={imagenesEquipos[equipo2.nombre]}
-            style={styles.equipoImagen}
-          />
-
+          <Image source={imagenesEquipos[equipo2.nombre]} style={styles.equipoImagen}/>
           <Text style={styles.equipoNombre}>{equipo2.nombre}</Text>
 
           <FlatList
@@ -87,95 +80,29 @@ export default function HomeScreen({ navigation }) {
 
       </View>
 
-      {/* BOTÓN FINAL */}
+      {/* BOTÓN VER PARTIDO */}
       <TouchableOpacity
         style={styles.botonFinal}
-        onPress={() =>
-          navigation.navigate('VS', { equipo1, equipo2 })
-        }
+        onPress={() => navigation.navigate('VS', { equipo1, equipo2 })}
       >
         <Text style={styles.botonFinalTexto}>Ver Partido</Text>
       </TouchableOpacity>
+
 
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F4F6FA',
-    paddingTop: 50,
-    alignItems: 'center',
-  },
-
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 25,
-    color: '#222',
-  },
-
-  equiposContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '100%',
-  },
-
-  card: {
-    backgroundColor: '#fff',
-    width: '45%',
-    borderRadius: 20,
-    padding: 15,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 5,
-  },
-
-  equipoImagen: {
-    width: 110,
-    height: 110,
-    marginBottom: 10,
-  },
-
-  equipoNombre: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-
-  jugador: {
-    fontSize: 14,
-    marginVertical: 2,
-    color: '#555',
-  },
-
-  boton: {
-    marginTop: 12,
-    backgroundColor: '#4B7BEC',
-    paddingVertical: 8,
-    paddingHorizontal: 25,
-    borderRadius: 25,
-  },
-
-  botonTexto: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-
-  botonFinal: {
-    marginTop: 30,
-    backgroundColor: '#20BF6B',
-    paddingVertical: 14,
-    paddingHorizontal: 60,
-    borderRadius: 30,
-  },
-
-  botonFinalTexto: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
+  container:{flex:1,backgroundColor:'#F4F6FA',paddingTop:50,alignItems:'center'},
+  title:{fontSize:24,fontWeight:'bold',marginBottom:25,color:'#222'},
+  equiposContainer:{flexDirection:'row',justifyContent:'space-around',width:'100%'},
+  card:{backgroundColor:'#fff',width:'45%',borderRadius:20,padding:15,alignItems:'center',elevation:5},
+  equipoImagen:{width:110,height:110,marginBottom:10},
+  equipoNombre:{fontSize:18,fontWeight:'bold',marginBottom:10},
+  jugador:{fontSize:14,marginVertical:2,color:'#555'},
+  boton:{marginTop:12,backgroundColor:'#4B7BEC',paddingVertical:8,paddingHorizontal:25,borderRadius:25},
+  botonTexto:{color:'#fff',fontWeight:'bold'},
+  botonFinal:{marginTop:30,backgroundColor:'#20BF6B',paddingVertical:14,paddingHorizontal:60,borderRadius:30},
+  botonFinalTexto:{color:'#fff',fontSize:18,fontWeight:'bold'},
 });
