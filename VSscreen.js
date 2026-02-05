@@ -15,6 +15,24 @@ export default function VsScreen({ route, navigation }) {
   const [puntos1, setPuntos1] = useState(0);
   const [puntos2, setPuntos2] = useState(0);
 
+  // ⭐ Guardar puntos por jugador
+  const [statsJugadores, setStatsJugadores] = useState({});
+
+  // ⭐ Función para sumar puntos
+  const sumarPuntosJugador = (jugador, equipo, puntos) => {
+
+    setStatsJugadores(prev => ({
+      ...prev,
+      [jugador]: (prev[jugador] || 0) + puntos
+    }));
+
+    if (equipo === 1) {
+      setPuntos1(p => p + puntos);
+    } else {
+      setPuntos2(p => p + puntos);
+    }
+  };
+
   return (
     <View style={styles.container}>
 
@@ -36,14 +54,23 @@ export default function VsScreen({ route, navigation }) {
             renderItem={({ item }) => (
               <View style={styles.jugadorRow}>
                 <Text>{item}</Text>
+
                 <View style={styles.botones}>
-                  <TouchableOpacity onPress={() => setPuntos1(puntos1 + 2)} style={styles.btn2}>
+
+                  <TouchableOpacity
+                    onPress={() => sumarPuntosJugador(item, 1, 2)}
+                    style={styles.btn2}
+                  >
                     <Text>+2</Text>
                   </TouchableOpacity>
 
-                  <TouchableOpacity onPress={() => setPuntos1(puntos1 + 3)} style={styles.btn3}>
+                  <TouchableOpacity
+                    onPress={() => sumarPuntosJugador(item, 1, 3)}
+                    style={styles.btn3}
+                  >
                     <Text>+3</Text>
                   </TouchableOpacity>
+
                 </View>
               </View>
             )}
@@ -61,14 +88,23 @@ export default function VsScreen({ route, navigation }) {
             renderItem={({ item }) => (
               <View style={styles.jugadorRow}>
                 <Text>{item}</Text>
+
                 <View style={styles.botones}>
-                  <TouchableOpacity onPress={() => setPuntos2(puntos2 + 2)} style={styles.btn2}>
+
+                  <TouchableOpacity
+                    onPress={() => sumarPuntosJugador(item, 2, 2)}
+                    style={styles.btn2}
+                  >
                     <Text>+2</Text>
                   </TouchableOpacity>
 
-                  <TouchableOpacity onPress={() => setPuntos2(puntos2 + 3)} style={styles.btn3}>
+                  <TouchableOpacity
+                    onPress={() => sumarPuntosJugador(item, 2, 3)}
+                    style={styles.btn3}
+                  >
                     <Text>+3</Text>
                   </TouchableOpacity>
+
                 </View>
               </View>
             )}
@@ -85,7 +121,8 @@ export default function VsScreen({ route, navigation }) {
             equipo1,
             equipo2,
             puntos1,
-            puntos2
+            puntos2,
+            statsJugadores
           })
         }
       >
