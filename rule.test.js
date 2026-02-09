@@ -1,13 +1,11 @@
-import { calcularNuevoMarcador } from './rules';
+const { calcularNuevoMarcador } = require('./rules');
 
-describe('Marcador', () => {
+test('suma 2 puntos correctamente', () => {
+  const resultado = calcularNuevoMarcador(10, 2);
+  expect(resultado).toBe(12);
+});
 
-  test('10 + 2 = 12', () => {
-    expect(calcularNuevoMarcador(10,2)).toBe(12);
-  });
-
-  test('10 + 3 = 13', () => {
-    expect(calcularNuevoMarcador(10,3)).toBe(13);
-  });
-
+test('suma 3 puntos correctamente', () => {
+  const resultado = calcularNuevoMarcador(10, 3);
+  expect(resultado).toBe(13);
 });

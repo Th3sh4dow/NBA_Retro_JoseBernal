@@ -1,4 +1,5 @@
-
-export const calcularNuevoMarcador = (puntajeActual, puntosASumar) => {
+function calcularNuevoMarcador(puntajeActual, puntosASumar) {
   return puntajeActual + puntosASumar;
-};
+}
+
+module.exports = { calcularNuevoMarcador };
